@@ -1,10 +1,10 @@
-span<script setup>
-import { storeToRefs } from 'pinia';
+<script setup>
+// import { storeToRefs } from 'pinia';
 
-import { useAuthStore } from '@/stores';
+// import { useAuthStore } from '@/stores';
 
-const authStore = useAuthStore();
-const { user } = storeToRefs(authStore);
+// const authStore = useAuthStore();
+// const { user } = storeToRefs(authStore);
 </script>
 
 <template>
@@ -41,35 +41,7 @@ const { user } = storeToRefs(authStore);
               <img class="image1" src="../assets/novo-verde-removebg-preview.png" alt="">
             </div>
         </div>
-        <!-- footer -->
-        <footer>
-          <div class="firstContainer container">
-            <img src="../assets/ecocampus2.svg" alt="Logo" id="logo" />
-          </div>
-          <div class="secondContainer container">
-            <span>ECOCAMPUS, Inc. © 2023</span>
-            <p>
-              A <span class="bold">ECOCAMPUS</span> é um projeto da
-              <span class="bold">Escola Superior de Media Artes e Design</span>
-              do
-              <span class="bold">Instituto Politécnico do Porto</span>
-            </p>
-          </div>
-          <div class="thirdContainer container">
-            <router-link to="#">Privacidade</router-link>
-            <router-link to="#">Termos de Utilização</router-link>
-            <router-link to="#">Contactos</router-link>
-          </div>
-          <div class="forthContainer container">
-            <img src="../assets/instagram-svgrepo-com.svg" alt="" class="social" />
-            <img src="../assets/facebook-svgrepo-com.svg" alt="" class="social" />
-            <img src="../assets/tiktok-svgrepo-com.svg" alt="" class="social" />
-            <img src="../assets/twitter-svgrepo-com.svg" alt="" class="social" />
-          </div>
-        </footer>
     </div>
-    
-
 </template>
 
 <style scoped>
