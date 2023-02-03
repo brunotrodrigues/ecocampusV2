@@ -1,56 +1,5 @@
 <script setup>
-import { Form, Field } from 'vee-validate';
-import * as Yup from 'yup';
-import { useRoute } from 'vue-router';
-import { storeToRefs } from 'pinia';
 
-import { useUsersStore, useAlertStore } from '@/stores';
-import { router } from '@/router';
-
-const usersStore = useUsersStore();
-const alertStore = useAlertStore();
-const route = useRoute();
-const id = route.params.id;
-
-let title = 'Adicionar Utilizador';
-let user = null;
-if (id) {
-    // edit mode
-    title = 'Editar Utilizador';
-    ({ user } = storeToRefs(usersStore));
-    usersStore.getById(id);
-}
-
-const schema = Yup.object().shape({
-    firstName: Yup.string()
-        .required('Primeiro nome é necessario'),
-    lastName: Yup.string()
-        .required('Apelido é necessario'),
-    username: Yup.string()
-        .required('Username é necessario'),
-    password: Yup.string()
-        .transform(x => x === '' ? undefined : x)
-        // password optional in edit mode
-        .concat(user ? null : Yup.string().required('Password é necessario'))
-        .min(6, 'Password tem que ter pelo menos 6 caracteres')
-});
-
-async function onSubmit(values) {
-    try {
-        let message;
-        if (user) {
-            await usersStore.update(user.value.id, values)
-            message = 'User updated';
-        } else {
-            await usersStore.register(values);
-            message = 'User added';
-        }
-        await router.push('/users');
-        alertStore.success(message);
-    } catch (error) {
-        alertStore.error(error);
-    }
-}
 </script>
 
 <template>

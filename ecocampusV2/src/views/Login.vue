@@ -1,19 +1,5 @@
 <script setup>
-import { Form, Field } from "vee-validate";
-import * as Yup from "yup";
 
-import { useAuthStore } from "@/stores";
-
-const schema = Yup.object().shape({
-  username: Yup.string().required("Username é necessário"),
-  password: Yup.string().required("Password é necessário"),
-});
-
-async function onSubmit(values) {
-  const authStore = useAuthStore();
-  const { username, password } = values;
-  await authStore.login(username, password);
-}
 </script>
 
 <template>

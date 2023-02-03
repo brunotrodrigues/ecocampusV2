@@ -1,33 +1,4 @@
 <script setup>
-import { Form, Field } from "vee-validate";
-import * as Yup from "yup";
-
-import { useUsersStore, useAlertStore } from "@/stores";
-import { router } from "@/router";
-
-const schema = Yup.object().shape({
-  firstName: Yup.string().required("First Name is required"),
-  lastName: Yup.string().required("Last Name is required"),
-  username: Yup.string().required("Username is required"),
-  password: Yup.string()
-    .required("Password is required")
-    .min(6, "Password must be at least 6 characters"),
-});
-
-async function onSubmit(values) {
-  const usersStore = useUsersStore();
-  const alertStore = useAlertStore();
-  values.isAdmin = false
-  try {
-    await usersStore.register(values);
-    await router.push("/account/login"); 
-
-    alertStore.success("Registration successful");
-  } catch (error) {
-    alertStore.error(error);
-  }
-
-}
 </script>
 
 <template>

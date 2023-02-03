@@ -1,12 +1,5 @@
 <script setup>
-import { storeToRefs } from 'pinia';
 
-import { useUsersStore } from '@/stores';
-
-const usersStore = useUsersStore();
-const { users } = storeToRefs(usersStore);
-
-usersStore.getAll();
 </script>
 
 <template>
