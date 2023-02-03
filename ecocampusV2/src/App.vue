@@ -1,11 +1,11 @@
 <script type="text/javascript">
-import NavBar from './components/NavBar.vue';
-import Footer from './components/Footer.vue';
+import Footer from '../src/components/Footer.vue'
+import Nav from '../src/components/Nav.vue'
 
 export default {
 	name: 'app',
 	components: {
-		NavBar,
+		Nav,
 		Footer, // register component
 	},
 };
@@ -13,7 +13,7 @@ export default {
 
 <template>
   <div id="app">
-		<NavBar />
+		<Nav />
 		<Router-view />
 		<Footer />
 	</div>
@@ -21,8 +21,5 @@ export default {
 </template>
 
 <style>
-body {
-	margin: 0;
-	padding: 0;
-}
+
 </style>

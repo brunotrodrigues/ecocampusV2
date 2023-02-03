@@ -1,11 +1,9 @@
 <script setup>
-// import { useAuthStore } from "@/stores";
 
-// const authStore = useAuthStore();
 </script>
 
 <template>
-  <nav v-show="authStore.user" class="navbar navbar-expand navbar-dark">
+  <nav class="navbar navbar-expand navbar-dark">
     <div>
       <img class="logo" src="../assets/ECOCAMPUS3.svg" alt="">
     </div>
